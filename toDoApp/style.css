@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(120deg, #4646af, #3f5192);
+    color: rgb(255, 241, 197);
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    font-size: 1.5rem;
+}
+
+header, form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form button, form input {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+}
+
+form input {
+    border-radius: 0.3em 0em 0em 0.3em;
+}
+
+form button {
+    color: #3f5192;
+    background: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+}
+
+form button:hover {
+    background: #3f5192;
+    color: rgb(255, 241, 197);
+}
+
+.toDoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toDoList {
+    min-width: 30%;
+    list-style: none;
+}
+
+.toDo {
+    margin: 0.5rem;
+    background: white;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.toDo li {
+    flex: 1;
+}
+
+.checkButton, .delButton {
+    background: rgb(255, 241, 197);
+    color: black;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.checkButton {
+    background: rgb(142, 219, 118);
+    transition: all 0.4s ease;
+}
+
+.checkButton:hover {
+    background: #3f5192;
+    color: rgb(255, 241, 197);
+}
+
+.delButton {
+    transition: all 0.4s ease;
+    border-radius: 0em 0.3em 0.3em 0em;
+}
+
+.delButton:hover {
+    background: #3f5192;
+    color: rgb(255, 241, 197);
+}
+
+.toDoItem {
+    padding: 0rem 0.5rem;
+}
+
+.fa-trash, .fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.delAnim {
+    transform: translateX(8rem);
+    opacity: 0;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+select {
+    color: #3f5192;
+    width: 10rem;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 0.3em 0.6em 0.6em 0.3em;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    align-items: center;
+    background: white;
+    color: #3f5192;
+    top: 0;
+    right: 0;
+    padding: .7rem;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    border-radius: 0em 0.3em 0.3em 0em;
+}
+
+.select:hover::after {
+    background: #3f5192;
+    color: rgb(255, 241, 197);
+}
