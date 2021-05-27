@@ -240,6 +240,10 @@ header #toggle::after{
     filter: invert();
 }
 
+.sci li a:hover img {
+    filter: none;
+}
+
 @media (max-width: 767px) {
     header {
         padding: 20px 50px;

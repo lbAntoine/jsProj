@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #131313;
+}
+
+.container {
+    position: relative;
+}
+
+.container .card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container .card .imgBx img {
+    position: absolute;
+    top: 0;
+    max-width: auto;
+    height: 450px;
+    clip-path: circle(450px);
+    transition: 0.3s ease-in-out;
+}
+
+.container .card:hover .imgBx img {
+    clip-path: circle(425px at 80% -20%);
+    top: -25%;
+    height: 400px;
+}
+
+.container .card:after {
+    content: 'Web dev';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 10em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgb(255, 255, 255, 0.04);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.container .card:hover:after {
+    opacity: 1;
+    visibility: visible;
+    /* transition-delay: 0.75s; */
+}
+
+.container .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.container .card:hover .contentBx {
+    height: 210px;
+}
+
+.container .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgb(235, 193, 80);
+    transition: 0.2s;
+}
+
+.container .card:hover .contentBx h2 {
+    color: #fff;
+}
+
+.container .card .contentBx .location h3 {
+    position: relative;
+    font-weight: 50;
+    letter-spacing: 1px;
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.75s;
+}
+
+.container .card:hover .contentBx .location h3 {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container .card .contentBx .socials {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .card:hover .contentBx .socials {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.container .card .contentBx .socials a img {
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    filter: invert();
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.container .card .contentBx .socials a img:hover {
+    filter: none;
+}
+
+.container .card .contentBx .cv a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.3s;
+}
+
+.container .card:hover .contentBx .cv a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}
+
+
+
