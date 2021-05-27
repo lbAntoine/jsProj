@@ -21,12 +21,45 @@ header {
 header .logo {
     position: relative;
     font-weight: 700;
+    animation: pulsate 1.5s infinite alternate;
     color: #fff;
     text-decoration: none;
     font-size: 2em;
     letter-spacing: 2px;
     transition: 0.6s;
 }
+
+/*flickering effect*/
+@keyframes pulsate {
+    100% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #40c3ff,
+        0 0 80px #40c3ff,
+        0 0 90px #40c3ff,
+        0 0 100px #40c3ff,
+        0 0 150px #40c3ff;
+    }
+    0% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 10px #fff,
+        0 0 18px #fff,
+        0 0 38px #40c3ff,
+        0 0 73px #40c3ff,
+        0 0 80px #40c3ff,
+        0 0 94px #40c3ff,
+        0 0 140px #40c3ff;
+    }
+}
+
+@media screen and (prefers-reduced-motion) { 
+    header .logo {
+      animation: none;
+    }
+  }
 
 header #toggle {
     position: relative;
@@ -72,7 +105,7 @@ header #toggle::after{
     width: 100%;
     min-height: 100vh;
     padding: 100px;
-    background-color: cornflowerblue;
+    background-color: rgb(26, 39, 63);
     background-size: cover;
     display: flex;
     align-items: center;
@@ -150,6 +183,29 @@ header #toggle::after{
     text-decoration: none;
     font-size: 1.2em;
     font-weight: 500;
+    overflow: hidden;
+}
+
+.content a span {
+    position: absolute;
+    background: #000;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: rippleEffect 1s linear infinite;
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
 }
 
 .sci {
@@ -172,6 +228,7 @@ header #toggle::after{
     text-decoration: none;
     border: 1px solid #fff;
     margin: 10px 0 0;
+    transition: all 0.2s ease;
 }
 
 .sci li a:hover{
