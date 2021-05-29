@@ -20,7 +20,7 @@ header {
 
 header .logo {
     position: relative;
-    font-weight: 700;
+    font-weight: 100;
     animation: pulsate 1.5s infinite alternate;
     color: #fff;
     text-decoration: none;
@@ -29,8 +29,12 @@ header .logo {
     transition: 0.6s;
 }
 
+header .logo span {
+    font-weight: 700;
+}
+
 /*flickering effect*/
-@keyframes pulsate {
+/* @keyframes pulsate {
     100% {
         text-shadow:
         0 0 4px #fff,
@@ -59,7 +63,7 @@ header .logo {
     header .logo {
       animation: none;
     }
-  }
+  } */
 
 header #toggle {
     position: relative;
@@ -211,37 +215,167 @@ header #toggle::after{
 .sci {
     position: absolute;
     display: flex;
-    flex-direction: column;
     right: 100px;
 }
 
-.sci li {
-    list-style: none;
-}
-
-.sci li a {
+.sci .containerCard {
     position: relative;
-    display: grid;
-    place-items: center;
-    width: 50px;
+}
+
+.sci .containerCard .card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: cornsilk;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.sci .containerCard:hover .card {
+    width: 320px;
+    height: 450px;
+    border-radius: 20px;
+}
+
+.sci .containerCard .card .imgBx img {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    max-width: auto;
+    height: 250px;
+    clip-path: ellipse(80% 80%);
+    transition: 0.5s ease-in-out;
+}
+
+.sci .containerCard:hover .card .imgBx img {
+    top: 0;
+    left: 0;
+    height: 350px;
+    clip-path: ellipse(55% 55% at 46.5% 20%);
+    transition-delay: 0.05s;
+}
+
+.sci .containerCard .card:after {
+    content: 'Web dev';
+    position: absolute;
+    top: 40%;
+    left: -30%;
+    font-size: 10em;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 0.82em;
+    color: rgba(26, 39, 63, 0.096);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.sci .containerCard:hover .card:after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sci .containerCard .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     height: 50px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+
+/*peut-être amorcer la transition de tout content ici?
+si c'est le cas, changer la couleur de la police de h2 à noir directement
+finalement peut-être pas si je veux faire arriver les éléments petit à petit*/
+}
+
+.sci .containerCard:hover .card .contentBx {
+    height: 180px;
+}
+
+.sci .containerCard .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #000;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sci .containerCard:hover .card .contentBx h2 {
+    opacity: 1;
+    visibility: visible;
+    /* transition-delay: opacity 1s; */
+}
+
+.sci .containerCard .card .contentBx h3 {
+    position: relative;
+    font-weight: 50;
+    letter-spacing: 1px;
+    color: #000;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sci .containerCard:hover .card .contentBx h3 {
+    opacity: 1;
+    visibility: visible;
+    /* transition-delay: opacity 1s; */
+}
+
+.sci .containerCard .card .contentBx .socials {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.8s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sci .containerCard:hover .card .contentBx .socials {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0;
+}
+
+.sci .containerCard .card .contentBx .socials a img {
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.sci .containerCard .card .contentBx .socials a img:hover {
+    filter: invert(77%) sepia(44%) saturate(4854%) hue-rotate(172deg) brightness(103%) contrast(103%);
+}
+
+.sci .containerCard .card .contentBx .cv a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #40c3ff;
+    border-radius: 4px;
+    margin-top: 10px;
     text-decoration: none;
-    border: 1px solid #fff;
-    margin: 10px 0 0;
-    transition: all 0.2s ease;
+    color: #000;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.3s;
 }
 
-.sci li a:hover{
-    background: #fff;
+.sci .containerCard:hover .card .contentBx .cv a:hover {
+    background: rgb(235, 193, 80);
 }
 
-.sci li a img {
-    max-width: 20px;
-    filter: invert();
-}
-
-.sci li a:hover img {
-    filter: none;
+.sci .containerCard:hover .card .contentBx .cv a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: opacity 0.75s, transform 0.75s;
 }
 
 @media (max-width: 767px) {
@@ -267,14 +401,12 @@ header #toggle::after{
         font-size: 1.5em;
         margin: 5px 0;
     }
+}
+
+@media (max-width: 1012px) {
     .sci {
         position: absolute;
-        bottom: 50px;
-        right: initial;
-        flex-direction: row;
-    }
-    .sci li a {
-        margin: initial;
-        margin-right: 10px;
+        bottom: 5px;
+        right: 100px;
     }
 }
