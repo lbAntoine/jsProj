@@ -1,0 +1,6 @@
+git+https://github.com/Rapptz/discord.py
+scipy
+python-dotenv
+gspread
+oauth2client
+asyncio
