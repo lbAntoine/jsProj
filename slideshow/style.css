@@ -1,0 +1,155 @@
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    background-color: rgb(22, 23, 63);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    text-align: center;
+    height: 1304px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.container .title {
+    font-size: 3em;
+    font-weight: 600;
+    color: cornsilk;
+}
+
+div {
+    display: block;
+}
+
+.container .pc-swiper {
+    display: block;
+    margin-top: 68px;
+}
+
+.pc-container {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 1112px;
+    height: 628px;
+}
+
+.pc-img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 1112px;
+    height: 628px;
+}
+
+element.style {
+
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+}
+
+.slide--active {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide--next1 {
+    transform: translate3d(237px, 0, 0) scale(0.87);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.slide--next2 {
+    transform: translate3d(0px, 0, 0) scale(0.74);
+}
+
+.slide--prev2 {
+    transform: translate3d(0px, 0, 0) scale(0.74);
+}
+
+.slide--prev1 {
+    transform: translate3d(-237px, 0, 0) scale(0.87);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.pc-swiper .pc-next, .pc-swiper .pc-prev {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    cursor: pointer;
+    outline: none;
+    top: 286px;
+    z-index: 12;
+    background-image: url(images/right-arrow.png)
+}
+
+.pc-swiper .pc-next {
+    right: 50px;
+}
+
+.pc-swiper .pc-prev {
+    transform: rotate(180deg);
+    left: 50px;
+}
+
+.pc-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 44px;
+    margin-top: 55px;
+}
+
+.pc-pagination {
+    font-size: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pc-pagination-bullet.pc-pagination-bullet--active, .pc-pagination-bullet:hover {
+    background-image: url(images/active-pagination-button.png);
+}
+
+.pc-pagination-bullet:first-of-type {
+    margin-left: 0;
+}
+
+.pc-pagination-bullet+.pc-pagination-bullet {
+    margin-left: 8px;
+}
+
+.pc-pagination-bullet {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    outline: none;
+    opacity: 1;
+    margin-left: 14px;
+    cursor: pointer;
+    background-image: url(images/pagination-button.png)
+}
