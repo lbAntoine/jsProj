@@ -1,0 +1,351 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Encode Sans Expanded", sans-serif;
+  background-color: #fffdff;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 100px;
+  z-index: 10000;
+  transition: 0.6s;
+}
+header .logo {
+  position: relative;
+  font-weight: 100;
+  animation: pulsate 1.5s infinite alternate;
+  color: #037142;
+  text-decoration: none;
+  font-size: 2em;
+  letter-spacing: 2px;
+  transition: 0.6s;
+}
+header .logo span {
+  font-weight: 700;
+}
+
+header #toggle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+header #toggle::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  width: 100%;
+  height: 2px;
+  background: #343335;
+  transition: 0.3s ease;
+}
+
+header #toggle::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 100%;
+  height: 2px;
+  background: #343335;
+  transition: 0.3s ease;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.banner.active {
+  transform: translateX(-400px);
+}
+
+.header.active {
+  transform: translate(-37%);
+}
+
+.header {
+  transition: 0.5s;
+}
+
+.header.active header #toggle::before {
+  top: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.header.active header #toggle::after {
+  top: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.content {
+  max-width: 600px;
+}
+.content h2 {
+  color: #343335;
+  font-size: 2.5em;
+}
+.content h2 span {
+  color: #037142;
+  font-size: 1.2em;
+}
+.content p {
+  color: #343434;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+.content a {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+  background: #037142;
+  color: #fffdff;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.content a span {
+  position: absolute;
+  background: #037142;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: rippleEffect 1s linear infinite;
+}
+
+@keyframes rippleEffect {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+#nav {
+  position: fixed;
+  top: 0;
+  right: -200px;
+  width: 400px;
+  height: 100vh;
+  background: #037142;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+
+#nav.active {
+  right: 0;
+}
+#nav.active ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#nav.active ul li {
+  list-style: none;
+}
+#nav.active ul li a {
+  color: #343335;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sci {
+  position: absolute;
+  display: flex;
+  right: 100px;
+}
+.sci .containerCard {
+  position: relative;
+}
+.sci .containerCard .card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: cornsilk;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+.sci .containerCard .card .imgBx img {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  max-width: auto;
+  height: 250px;
+  clip-path: ellipse(80% 80%);
+  transition: 0.5s ease-in-out;
+}
+.sci .containerCard .card .contentBx {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+  /*peut-être amorcer la transition de tout content ici?
+  si c'est le cas, changer la couleur de la police de h2 à noir directement
+  finalement peut-être pas si je veux faire arriver les éléments petit à petit*/
+}
+.sci .containerCard .card .contentBx h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #000;
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+.sci .containerCard .card .contentBx h3 {
+  position: relative;
+  font-weight: 50;
+  letter-spacing: 1px;
+  color: #000;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+.sci .containerCard .card .contentBx .socials {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.8s;
+  opacity: 0;
+  visibility: hidden;
+}
+.sci .containerCard .card .contentBx .socials a img {
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.sci .containerCard .card .contentBx .cv a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #40c3ff;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.3s;
+}
+
+.sci .containerCard:hover .card {
+  width: 320px;
+  height: 450px;
+  border-radius: 20px;
+}
+
+.sci .containerCard:hover .card .imgBx img {
+  top: 0;
+  left: 0;
+  height: 350px;
+  clip-path: ellipse(55% 55% at 46.5% 20%);
+  transition-delay: 0.05s;
+}
+
+.sci .containerCard .card:after {
+  content: "Web dev";
+  position: absolute;
+  top: 40%;
+  left: -30%;
+  font-size: 10em;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 0.82em;
+  color: rgba(26, 39, 63, 0.096);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.sci .containerCard:hover .card:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sci .containerCard:hover .card .contentBx {
+  height: 180px;
+}
+
+.sci .containerCard:hover .card .contentBx h2 {
+  opacity: 1;
+  visibility: visible;
+  /* transition-delay: opacity 1s; */
+}
+
+.sci .containerCard:hover .card .contentBx h3 {
+  opacity: 1;
+  visibility: visible;
+  /* transition-delay: opacity 1s; */
+}
+
+.sci .containerCard:hover .card .contentBx .socials {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0;
+}
+
+.sci .containerCard .card .contentBx .socials a img:hover {
+  filter: invert(77%) sepia(44%) saturate(4854%) hue-rotate(172deg) brightness(103%) contrast(103%);
+}
+
+.sci .containerCard:hover .card .contentBx .cv a:hover {
+  background: #ebc150;
+}
+
+.sci .containerCard:hover .card .contentBx .cv a {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: opacity 0.75s, transform 0.75s;
+}
+
+.swiper-container {
+  height: 868px;
+}
+
+.swiper-pagination-bullet {
+  position: absolute !important;
+  margin-top: 25px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #037142;
+}
+
+.swiper-container-vertical > .swiper-pagination-bullets {
+  right: 50px !important;
+}
