@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slideshow test</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="restyle.css">
 </head>
 <body>
@@ -13,7 +14,7 @@
     <header class="header" id="head">
         <!-- <a href="#"></a><img src="images/lbAntoinelogo.png" width = "7%" height = "7%" class="logoImg"></a> -->
         <a href="#" class="logo">lb<span>Antoine</span></a>
-        <div class= "menu" id="toggle" onclick="toggle()"></div>
+        <div class= "menu" id="toggle" onclick="toggleM()"></div>
     </header>
     
 
@@ -70,12 +71,18 @@
 
     <div id="nav">
         <ul>
-            <li><a href="#">Dark/Light mode</a></li>
+            <li><span class="themeSwitch"></span></li>
             <li><a href="#">Langues</a></li>
         </ul>
     </div>
 
-
+    <script>//darkmode
+        let themeSwitch = document.querySelector('.themeSwitch');
+        let body = document.querySelector('body');
+        themeSwitch.onClick = function() {
+            themeSwitch.classList.toggle('active');
+            body.classList.toggle('dark');
+        }</script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="main.js"></script>
 </body>

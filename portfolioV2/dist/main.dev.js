@@ -23,7 +23,7 @@ sclButton.forEach(function (btn) {
 }); //Functions
 //function to toggle the menu button -active class-
 
-function toggle() {
+function toggleM() {
   sec.classList.toggle('active');
   nav.classList.toggle('active');
   head.classList.toggle('active');
