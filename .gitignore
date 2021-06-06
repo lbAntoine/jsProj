@@ -2,3 +2,5 @@
 gcgclassement_creds.json
 Procfile
 requirements.txt
+package-lock.json
+package.json
