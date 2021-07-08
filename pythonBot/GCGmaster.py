@@ -26,6 +26,8 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 PATCH_NOTES = int(os.getenv('PATCH_NOTES'))
 GCG_SHEET_KEY = os.getenv('GCG_SHEET_KEY')
+BLABLA_CHANNEL = int(os.getenv('BLABLA_CHANNEL'))
+
 
 
 bot = commands.Bot(command_prefix='master_')
@@ -41,7 +43,7 @@ goat = '<:Goat:589352160207306753>'
 @bot.event
 async def on_ready():
     change_status.start()
-    best_player.start()
+    # best_player.start()
     for guild in bot.guilds:
         if guild.name == GUILD:
             break
@@ -72,15 +74,18 @@ async def change_status():
 
 
 #Envoi le joueur N1 de la GCG et son ranking DB toutes les 24h
-@tasks.loop(hours=24)
-async def best_player():
+@bot.command(name='classement')
+async def best_player(ctx):
+    print(f'debut classement')
     gcg_best = googleConnect(GCG_SHEET_KEY, 'CLASSEMENT GCG')
     gcg_best.googleLogin()
     super_cleaner = outils()
 
     print(f'Collecting data from selected cells...')
     player_name = super_cleaner.clean(gcg_best.worksheet.get('B2')) #get the B2 cell of 'CLASSEMENT GCG'!
+    print(f'{player_name}')
     db_ranking = super_cleaner.clean(gcg_best.worksheet.get('C2')) #get the C2 cell of 'CLASSEMENT GCG'!
+    print(f'{db_ranking}')
 
     best_playerEmbed = discord.Embed(title=f'{goat} Le meilleur joueur GCG {goat}', description='Se relance toutes les 24h!', color=0x399494)
     best_playerEmbed.add_field(

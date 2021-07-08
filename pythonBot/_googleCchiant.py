@@ -26,4 +26,5 @@ class googleConnect:
 
         print(f'Selecting valid Sheet')
         self.worksheet = sh.worksheet(self.sheetTarget)
+        print(f'fin slected sheet')
         
