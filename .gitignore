@@ -1,6 +1,6 @@
-.env
-gcgclassement_creds.json
-Procfile
-requirements.txt
+pythonBot/.env
+pythonBot/gcgclassement_creds.json
+pythonBot/Procfile
+pythonBot/requirements.txt
 package-lock.json
 package.json
