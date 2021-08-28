@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-import HomePage from './components/home-page/home';
+import homeContainer from './containers/homeContainer';
 
 //Import routing
 import {
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/" component={homeContainer}/>
         </div>
       </Router>
     </div>
